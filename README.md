@@ -19,7 +19,6 @@ E-Commerce React App with authentication.
 * Apollo Client
 
 ### Backend
-* Express
 * GraphQL
 * Apollo Server
 * JWT
