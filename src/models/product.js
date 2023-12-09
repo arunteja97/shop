@@ -1,36 +1,45 @@
-import mongoose, { Schema } from "mongoose"
+import mongoose, { Schema } from "mongoose";
 
-const productSchema = new Schema({
-    name:{
-        type: String,
-        unique: true,
+const productSchema = new Schema(
+  {
+    name: {
+      type: String,
+      unique: true,
     },
     price: Number,
-}, { timestamps: true })
+  },
+  { timestamps: true }
+);
 
-const orderItemSchema = new Schema({
+const orderItemSchema = new Schema(
+  {
     product: {
-        type: mongoose.Types.ObjectId,
-        ref: "Product"
+      type: mongoose.Types.ObjectId,
+      ref: "Product",
     },
     quantity: {
-        type: Number
-    }
-}, { timestamps: true })
+      type: Number,
+    },
+  },
+  { timestamps: true }
+);
 
-const orderSchema = new Schema({
+const orderSchema = new Schema(
+  {
     items: [
-        {
-            type: mongoose.Types.ObjectId,
-            ref: "OrderItem"
-        }
+      {
+        type: mongoose.Types.ObjectId,
+        ref: "OrderItem",
+      },
     ],
     userId: {
-        type: mongoose.Types.ObjectId,
-        ref: "User"
-    }
-}, { timestamps: true })
+      type: mongoose.Types.ObjectId,
+      ref: "User",
+    },
+  },
+  { timestamps: true }
+);
 
-export const Product = mongoose.model('Product', productSchema);
-export const OrderItem = mongoose.model('OrderItem', orderItemSchema);
-export const Order = mongoose.model('Order', orderSchema);
+export const Product = mongoose.model("Product", productSchema);
+export const OrderItem = mongoose.model("OrderItem", orderItemSchema);
+export const Order = mongoose.model("Order", orderSchema);

@@ -1,7 +1,6 @@
-import { gql } from 'apollo-server';
+import { gql } from "apollo-server";
 
 export const typeDefs = gql`
-  
   scalar DateTime
 
   type Product {
@@ -30,17 +29,17 @@ export const typeDefs = gql`
     user(id: ID!): User!
   }
 
-  input CreateProductInput{
+  input CreateProductInput {
     name: String!
     price: Float!
   }
 
-  input OrderItemInput{
+  input OrderItemInput {
     productId: String!
     quantity: Float!
   }
 
-  input CreateOrderInput{
+  input CreateOrderInput {
     orderItems: [OrderItemInput!]!
   }
   type User {
@@ -52,13 +51,13 @@ export const typeDefs = gql`
     orders: [Order!]!
   }
 
-  input RegisterInput{
+  input RegisterInput {
     name: String!
     email: String!
     password: String!
   }
 
-  input LoginInput{
+  input LoginInput {
     email: String!
     password: String!
   }
